@@ -15,8 +15,8 @@ import urllib.request
 st.title('Monkey classification')
 
 # #download model
-# model_url = "https://huggingface.co/alicelouis/MonkeyPoxClassification/resolve/main/AdamW_MSD_REGNET_Y_16GF.pt"
-# urllib.request.urlretrieve(model_url,"AdamW_MSD_REGNET_Y_16GF.pt")
+model_url = "https://huggingface.co/alicelouis/MonkeyPoxClassification/resolve/main/AdamW_MSD_REGNET_Y_16GF.pt"
+urllib.request.urlretrieve(model_url,"AdamW_MSD_REGNET_Y_16GF.pt")
 
 #load backbone
 model = models.regnet_y_16gf(pretrained=True)
