@@ -3,3 +3,4 @@ torchvision
 torchaudio
 streamlit
 scikit-image
+matplotlib
