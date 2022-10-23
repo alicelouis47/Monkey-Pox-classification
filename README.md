@@ -11,4 +11,4 @@
 
 ## ข้อมูลภาพ
 Monkeypox Image Data collection.[ข้อมูลเพิ่มเติม](https://arxiv.org/abs/2206.01774)
-## เว็บไซต์ของโมเดล : https://alicelouis47-monkey-pox-classification-app-frywso.streamlitapp.com/
+## เว็บไซต์ของโมเดล : https://alicelouis47-monkey-pox-classification-app-47fc8x.streamlitapp.com/
