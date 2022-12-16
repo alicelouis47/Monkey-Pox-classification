@@ -18,13 +18,13 @@ from matplotlib.pyplot import imshow
 
 with st.sidebar:
 
-    st.header("🖥️เกี่ยวกับโปรเจคนี้")
-    st.write("ทางผู้พัฒนามีความสนใจที่จะพัฒนาโมเดลในการแยกประเภทของโรคฝีดาษลิง โดยโครงงานนี้ได้ศึกษาการจำแนกประเภทภาพของโรคฝีดาษลิงออกเป็น 2 ประเภท คือ 1) ภาพของโรคฝีดาษลิง และ 2) ภาพที่ไม่ใช่โรคฝีดาษลิง จากชุดข้อมูลภาพที่ทางผู้พัฒนาได้เก็บรวบรวมจากแหล่งข้อมูลที่น่าเชื่อถือบนอินเทอร์เน็ต จาก Pre-trained models ทั้งหมด 3 แบบ ประกอบด้วย ConvNeXt_Small, RegNet_Y_16GF และ Wide_ResNet50-2 และนำ Pre-trained model ที่มีสมรรถนะที่ดีที่สุด มาปรับพารามิเตอร์แบบจำลองให้เหมาะสมกับชุดรูปภาพ และประเมินสมรรถนะแบบจำลองที่ได้ด้วย accuracy, precision, recall และF1-score",unsafe_allow_html=True)
+    st.header("🖥️About Project")
+    st.write("The developer is interested in developing a model to classify monkeypox. This project studied the classification of images of monkeypox into 2 categories: 1) images of monkeypox and 2) images of non-monkeypox. Based on the image dataset that the developers have collected from reliable sources on the Internet, three pre-trained models, ConvNeXt_Small, RegNet_Y_16GF, and Wide_ResNet50-2, were used to optimize the pre-trained model with the best performance parameters. Model to fit the set of images. and evaluate model performance with accuracy, precision, recall, and F1-score.",unsafe_allow_html=True)
     
-    st.header("🌐แหล่งอ้างอิง")
-    st.write("Monkeypox Image Data collection.[ข้อมูลเพิ่มเติม](https://arxiv.org/abs/2206.01774)")
+    st.header("🌐reference")
+    st.write("Monkeypox Image Data collection.[more](https://arxiv.org/abs/2206.01774)")
 
-st.header('Monkey Pox classification: จำแนกโรคฝีดาษลิง🙈🙉🙊')
+st.header('Monkey Pox classification: จำแนกโรคฝีดาษลิง🙈🙉🙊: サル痘の分類')
 
 
 with open("assets/webfonts/font.txt") as f:
@@ -51,7 +51,7 @@ model = models.regnet_y_16gf(pretrained=True)
 for param in model.trunk_output[0:].parameters():
     param.requires_grad = False
 model.fc = nn.Linear(in_features=3024, out_features=2)
-# ใช้ CPU ประมวลผล
+# use cpu tp processing
 device = torch.device('cpu')
 
 model.load_state_dict(torch.load('AdamW_MSD_REGNET_Y_16GF.pt', map_location=device))
@@ -62,7 +62,7 @@ if uploaded_file is not None:
     img = Image.open(uploaded_file)
     img_out = img
     img_out = np.array(img_out)
-    # โหลดโมเดลที่เซฟ
+    # load save weight model
     transform = transforms.Compose([
         transforms.Resize((224,224)),
         transforms.ToTensor(),
